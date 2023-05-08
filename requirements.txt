@@ -1,0 +1,9 @@
+ipython==8.4.0
+numpy==1.19.5
+pytorch_lightning==1.5.10
+PyYAML==6.0
+requests==2.25.1
+wandb==0.12.21
+tqdm==4.61.2
+XlsxWriter==3.0.3
+dgl>=0.7.1
