@@ -4,7 +4,7 @@
 
 ## Model Architecture
 <!-- <img src="structure.png" width = 100%height = 100%/> -->
-![Image text](https://github.com/zhouxiaolun0716/Analysis-relational-patterns-and-SPA/structure.png)
+![Image](https://github.com/zhouxiaolun0716/Analysis-relational-patterns-and-SPA/blob/main/structure.png)
 
 
 
