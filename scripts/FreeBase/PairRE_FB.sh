@@ -36,4 +36,4 @@ CUDA_VISIBLE_DEVICES=$GPU python -u main.py \
     --num_workers $NUM_WORKERS \
     --use_weight \
     --use_wandb \
-    --save_config \
+    --save_config

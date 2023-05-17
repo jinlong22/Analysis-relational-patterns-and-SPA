@@ -2,7 +2,6 @@
 # from torch._C import T
 # from train import Trainer
 import sys
-print(sys.path)
 sys.path.append("./src")
 
 import pytorch_lightning as pl

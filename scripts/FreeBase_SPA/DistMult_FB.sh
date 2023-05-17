@@ -52,12 +52,3 @@ CUDA_VISIBLE_DEVICES=$GPU python -u main.py \
     # --lambda_sub  $LAMBDA_SUB \
     # --use_inv_weight \
     # --lambda_inv  $LAMBDA_INV \
-    
-    
-    
-    
-    
-    
-    
-    # --use_comp3_weight \
-    # --lambda_comp3  $LAMBDA_COMP3 \

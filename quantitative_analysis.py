@@ -16,23 +16,23 @@ def model_test(dataset, mining_constrain, model_names, relation_patterns):
         
         model_names      :  "TransE", "RotatE", "HAKE", "ComplEx", "DualE", "PairRE", and "DistMult" are available
         
-        relation_patterns:  "symmetric","inverse","subrelation", and "compose2" are available
+        relation_patterns:  "symmetric","inverse","multiple", and "compose2" are available
     '''
     database_path = os.path.join("dataset",dataset)
-    rule_mining_path = os.path.join(database_path,"relation_classify",mining_constrain) #读文件路径
-    target_path = os.path.join( rule_mining_path, "test_result") #存文件路径
+    rule_mining_path = os.path.join(database_path,"relation_classify",mining_constrain) # Read file path
+    target_path = os.path.join( rule_mining_path, "test_result")                        # Save file path
     if not os.path.exists(target_path):
         os.makedirs(target_path)
     
     num_contrain = [0,5,10,15,20]
     # model_names = ["TransE", "RotatE", "HAKE", "ComplEx", "DualE", "PairRE", "DistMult"]
 
-    relation_patterns = [ 
-                "symmetric",\
-                "inverse",\
-                "subrelation",\
-                "compose2",\
-              ]
+    # relation_patterns = [ 
+    #             "symmetric",\
+    #             "inverse",\
+    #             "multiple",\
+    #             "compose2",\
+    #           ]
     
     pre_path = "FreeBase" if dataset == "FB15K237" else "WordNet"
     suf_path = "_FB.sh" if dataset == "FB15K237" else "_WN.sh"
@@ -69,7 +69,7 @@ def model_test(dataset, mining_constrain, model_names, relation_patterns):
                 os.system(sh_order)
 
                     
-def xw_toExcel(data, fileName, num_contrain):  # xlsxwriter库储存数据到excel
+def xw_toExcel(data, fileName, num_contrain):       # save date to excel by xlsxwriter
     workbook = xw.Workbook(fileName)                # Create workbook
     worksheet1 = workbook.add_worksheet("sheet1")   # Create worksheet
     worksheet1.activate()                           # Activate worksheet
@@ -91,7 +91,7 @@ def xw_toExcel(data, fileName, num_contrain):  # xlsxwriter库储存数据到exc
     workbook.close()    # Close the workbook
 
 def creat_test_result_excel(dataset, mining_constrain, model_names, relational_pattern, num_contrain,fileName):
-    model_names = ["PairRE", "DistMult"]
+    # model_names = ["PairRE", "DistMult"]
     database_path = os.path.join("dataset",dataset)
     rule_mining_path = os.path.join(database_path,"relation_classify",mining_constrain) # Read file path
     target_path = os.path.join( rule_mining_path, "test_result") # Save file path
@@ -108,7 +108,7 @@ def creat_test_result_excel(dataset, mining_constrain, model_names, relational_p
         index = 0
         for line in lines:
             if tmp_result == []:
-                tmp_result.append(relational_pattern[index%len(relational_pattern)])
+                tmp_result.append(relational_pattern[ index % len(relational_pattern) ])
                 index += 1
             if re.findall(r"'Test\|mrr': ",line):
                 x = re.findall(r"(\d+\.\d{1,4})",line)
@@ -128,17 +128,17 @@ def main():
                     "TransE",\
                     "RotatE", \
                     "HAKE", \
+                    "DistMult", \
                     "ComplEx", \
                     "DualE", \
-                    "PairRE", \
-                    "DistMult"
+                    "PairRE" \
                     ]                                       # select KGE models which are trained before
 
     relation_patterns = [
                         "symmetric",\
                         "inverse",\
-                        "subrelation",\
-                        "compose2",\
+                        "multiple",\
+                        "compose2"\
                         ]                                   # select relational patterns
 
     model_test(dataset,mining_constrain,model_names, relation_patterns) # quantitative analysis

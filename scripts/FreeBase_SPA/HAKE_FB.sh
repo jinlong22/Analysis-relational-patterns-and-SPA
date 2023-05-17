@@ -51,18 +51,16 @@ CUDA_VISIBLE_DEVICES=$GPU python -u main.py \
     --save_config \
     --test_only \
     --checkpoint_dir output/link_prediction/FB15K237/HAKE/epoch=209-Eval_mrr=0.347.ckpt \
-    --use_comp2_weight \
-    --lambda_comp2  $LAMBDA_COMP2 \
+    --use_sub_weight \
+    --lambda_sub  $LAMBDA_SUB \
+    # --use_comp2_weight \
+    # --lambda_comp2  $LAMBDA_COMP2 \
     # --use_sym_weight \
     # --lambda_sym  $LAMBDA_SYM \
     
-    # --use_sub_weight \
-    # --lambda_sub  $LAMBDA_SUB \
+    
     # --use_inv_weight \
     # --lambda_inv  $LAMBDA_INV \
-    
-    # --use_comp3_weight \
-    # --lambda_comp3  $LAMBDA_COMP3 \
     
     
     
