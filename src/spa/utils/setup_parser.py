@@ -57,9 +57,9 @@ def setup_parser():
     
 
     #parser only for relation pattern in rule miner
-    parser.add_argument('--minhc', default=0.5, type=float, help='only on DualE, regularization_two')
-    parser.add_argument('--minpca', default=0.8, type=float, help='only on DualE, regularization_two')
-    parser.add_argument('--maxad', default=4, type=int, help='only on DualE, regularization_two')
+    parser.add_argument('--minhc', default=0.5, type=float, help='HC of AMIE')
+    parser.add_argument('--minpca', default=0.8, type=float, help='PCA of AMIE')
+    parser.add_argument('--maxad', default=4, type=int, help='max length of AMIE')
     
     #parser only for relation pattern
     parser.add_argument('--use_sym_weight', default=False, action='store_true')

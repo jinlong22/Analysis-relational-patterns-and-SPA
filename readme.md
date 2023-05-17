@@ -3,9 +3,10 @@
 -*A Comprehensive Study on Knowledge Graph Embedding over Relational Patterns Based on Rule Learning*
 
 ## Model Architecture
-<h3 align="center">
+<!-- <h3 align="center">
     <img src="structure.png", width="600">
-</h3>
+</h3> -->
+![architecture](structure.png)
 
 
 
@@ -51,7 +52,6 @@ conda activate spa
 ```bash
 pip install torch==1.9.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirements.txt
-
 ```
 
 **Step3** Classify relations and triples with AMIE3
@@ -61,7 +61,6 @@ pip install -r requirements.txt
 # arg2 is the PCA with AMIE3
 # arg3 is the HC  with AMIE3
 python dataset/classify.py FB15k237 0.8 0.5
-
 ```
 
 **Step4** Train and test KGE model
@@ -87,12 +86,12 @@ sh scripts/WordNet/DualE_WN.sh
 sh scripts/WordNet/PairRE_WN.sh
 ```
 
-**Step5** Quantitative analysis over relational patterns
+**Step5** Quantitative analysis over relational patterns (please make sure the path of trained model is correct on `checkpoint_dir` and set `--test_only` in `scripts/FreeBase/Model.sh`.)
 ```bash
 python quantitative_analysis.py
 ```
 
-**Step6** Combine KGE socre with SPA score
+**Step6** Combine KGE socre with SPA score (please make sure the path of trained model is correct on `checkpoint_dir` and set `--test_only` in `scripts/FreeBase_SPA/Model.sh`.)
 ```bash
 # FB15k-237
 sh scripts/FreeBase_SPA/TransE_FB.sh
@@ -117,8 +116,8 @@ sh scripts/WordNet_SPA/PairRE_WN.sh
 
 **Note**: 
 - Default `.sh` files have been set the best hyperparameters, you can open the `.sh` file for parameter</a> modification.
-- Before combining KGE socre with SPA score, please make sure the path of trained model is correct on `checkpoint_dir`.
-- To obtain the SPA results under different relational patterns, you need to first replace the data in the test dataset with the data under the patterns dataset.
+- Before **Step5** and **Step6**, please make sure the path of trained model is correct on `checkpoint_dir`.
+- To obtain the SPA results over different relational patterns in **Step6**, you need to first replace the data in the test dataset with the data over specific patterns dataset.
 ```bash
 # FB15k-237 with symmetric 
 cat dataset/FB15K237/relation_classify/minhc_0.5_minpca_0.8_maxad_4/symmetric/num_constrain_0.txt > dataset/FB15K237/test.txt
@@ -138,9 +137,3 @@ cat dataset/WN18RR/relation_classify/minhc_0.5_minpca_0.8_maxad_4/multiple/num_c
 # WN18RR with compositional 
 cat dataset/WN18RR/relation_classify/minhc_0.5_minpca_0.8_maxad_4/compose2/num_constrain_0.txt > dataset/WN18RR/test.txt
 ```
-- Run SPA  `.sh` files need to match the test pattern data with the pattern of the SPA. For example, if you want to get SPA result with TransE over symmetric pattern in FB15k237, you can execute the following command.
-```bash
-# first change to the symmetric dataset
-cat dataset/FB15K237/relation_classify/minhc_0.5_minpca_0.8_maxad_4/symmetric/num_constrain_0.txt > dataset/FB15K237/test.txt
-```
-Then set the use_sym_weight and lambda_sym in scripts/FreeBase_SPA/TransE_FB.sh
