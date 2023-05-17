@@ -137,7 +137,7 @@ cat dataset/WN18RR/relation_classify/minhc_0.5_minpca_0.8_maxad_4/multiple/num_c
 # WN18RR with compositional 
 cat dataset/WN18RR/relation_classify/minhc_0.5_minpca_0.8_maxad_4/compose2/num_constrain_0.txt > dataset/WN18RR/test.txt
 ```
-- Run SPA  `.sh` files need to march the test pattern data with the pattern of the SPA. For example, if you want to get SPA result with TransE over symmetric pattern in FB15k237, you can execute the following command.
+- Run SPA  `.sh` files need to match the test pattern data with the pattern of the SPA. For example, if you want to get SPA result with TransE over symmetric pattern in FB15k237, you can execute the following command.
 ```bash
 # first change to the symmetric dataset
 cat dataset/FB15K237/relation_classify/minhc_0.5_minpca_0.8_maxad_4/symmetric/num_constrain_0.txt > dataset/FB15K237/test.txt
