@@ -3,8 +3,9 @@
 -*A Comprehensive Study on Knowledge Graph Embedding over Relational Patterns Based on Rule Learning*
 
 ## Model Architecture
-<img src="structure.png" width = 100%height = 100%/>
-<!-- ![Image](https://github.com/zhouxiaolun0716/Analysis-relational-patterns-and-SPA/blob/main/structure.png) -->
+<h3 align="center">
+    <img src="structure.png", width="600">
+</h3>
 
 
 
