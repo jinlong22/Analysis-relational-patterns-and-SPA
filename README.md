@@ -3,7 +3,10 @@
 -*A Comprehensive Study on Knowledge Graph Embedding over Relational Patterns Based on Rule Learning*
 
 ## Model Architecture
-<img src="structure.png" width = 100%height = 100%/>
+<!-- <img src="structure.png" width = 100%height = 100%/> -->
+![Image](https://github.com/zhouxiaolun0716/Analysis-relational-patterns-and-SPA/blob/main/structure.png)
+
+
 
 ## Dependencies
 
@@ -139,4 +142,4 @@ cat dataset/WN18RR/relation_classify/minhc_0.5_minpca_0.8_maxad_4/compose2/num_c
 # first change to the symmetric dataset
 cat dataset/FB15K237/relation_classify/minhc_0.5_minpca_0.8_maxad_4/symmetric/num_constrain_0.txt > dataset/FB15K237/test.txt
 ```
-  - - Then set the use_sym_weight and lambda_sym in scripts/FreeBase_SPA/TransE_FB.sh
+Then set the use_sym_weight and lambda_sym in scripts/FreeBase_SPA/TransE_FB.sh
